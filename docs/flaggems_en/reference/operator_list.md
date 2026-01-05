@@ -1,4 +1,4 @@
-## Operator List
+# Operator List
 
 The following table lists the latest supported operators.
 
