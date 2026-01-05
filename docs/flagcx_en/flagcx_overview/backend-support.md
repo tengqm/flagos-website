@@ -30,7 +30,7 @@ All native collective communications libraries can be referenced through the lin
 - [NCCL](https://github.com/NVIDIA/nccl), NVIDIA Collective Communications Library.
 - [RCCL](https://github.com/ROCm/rccl), ROCm Communication Collectives Library.
 - [TCCL](http://www.tsingmicro.com), TsingMicro Communication Collectives Library.
-- [XCCL](WIP), Kunlunxin XPU Collective Communications Library.
+- [XCCL](), KLX XPU Collective Communications Library.
 
 Additionally, FlagCX supports three collective communication libraries for host-side communication:
 

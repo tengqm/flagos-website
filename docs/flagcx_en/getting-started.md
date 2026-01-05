@@ -23,7 +23,7 @@ sudo docker run -itd \
                 -v <mount directory>:<mount point> \
                 <Docker Image> \
                 /bin/bash
--------------Reference Command for Container Creation on Kunlunxin P800 Platform-----------
+-------------Reference Command for Container Creation on KLX P800 Platform-----------
 sudo docker run -itd \
         --name <Docker name> \
         --privileged \
@@ -51,7 +51,7 @@ sudo docker run -itd \
    cat Makefile
    make USE_NVIDIA=1 -j$(nproc) # NVIDIA GPU Platform
    make USE_CAMBRICON=1 -j$(nproc)  # Cambricon Platform
-   make USE_KUNLUNXIN=1 -j$(nproc) # Kunlunxin Platform
+   make USE_KUNLUNXIN=1 -j$(nproc) # KLX Platform
    ```
    
 2. Successful Build Result

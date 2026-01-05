@@ -141,7 +141,7 @@ Refer to [](getting-started.md) for FlagCX compilation and installation.
    - `master_port`: Port used by the master node to establish the process group.
      All nodes must use the same port, and the port has to be available on all nodes.
    - `example.py`: Torch API test script.
-   - Refer to [](enviroment_variables.md) for the usage of the various `FLAGCX_XXX` environment variables.
+   - Refer to [](enviroment-variables.md) for the usage of the various `FLAGCX_XXX` environment variables.
 
 3. Sample screenshot from a correct performance test
 
@@ -375,7 +375,7 @@ The following steps shows an example in which we run the LLaMA3-8B model on Nvid
        /root/FlagCX/test/perf/test_allreduce -b 128K -e 4G -f 2 -w 5 -n 100 -p 1`
      ```
 
-     - Refer to [](enviroment-ariables.md) for the meaning and usage of `FLAGCX_XXX` environment variables.
+     - Refer to [](enviroment-variables.md) for the meaning and usage of `FLAGCX_XXX` environment variables.
 
    - **Note:** When using two GPUs per node in the heterogeneous Communication API test, some warnings may indicate that each node only has 1 GPU active. In this case, FlagCX will skip GPU-to-GPU AllReduce and fall back to host-based communication.
 

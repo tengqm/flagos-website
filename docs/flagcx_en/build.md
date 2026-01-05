@@ -29,7 +29,7 @@
    - `USE_MPI=1`: Enable the support to MPI library;
    - `USE_METAX=1`: Enable the support to MetaX chips;
    - `USE_MUSA=1`: Enable the support to Moore Threads chips;
-   - `USE_KUNLUNXIN=1`: Enable the support to Kunlunxin chips;
+   - `USE_KUNLUNXIN=1`: Enable the support to KLX chips;
    - `USE_DU=1`, `USE_ASCEND=1`: Enable support to Huawei Ascend hardware;
    - `USE_AMD=1`: Enable support to AMD hardware.
 

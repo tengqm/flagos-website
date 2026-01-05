@@ -32,7 +32,7 @@ Guides you how to use FlagCX.
 :::
 
 :::{grid-item-card} {octicon}`broadcast;1.5em;sd-mr-1` Application Integration
-:link: addle/README
+:link: paddle/README
 :link-type: doc
 
 Guides you how to train models using Paddle + FlagCX.
@@ -60,6 +60,7 @@ CHANGELOG.md
 
 flagcx_overview/flagcx-overview.md
 getting-started.md
+build.md
 user-guide.md
 testing.md
 ```

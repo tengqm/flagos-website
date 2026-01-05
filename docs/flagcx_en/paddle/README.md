@@ -11,7 +11,7 @@ Train on a single type of hardware platform:
 | Hardware        | User Guide |
 |:---------------:|:----------|
 | Nvidia GPU      | [](nvidia.md) |
-| Kunlunxin XPU   | [](kunlun.md) |
+| KLX XPU   | [](kunlun.md) |
 | Iluvatar GPU    | [](iluvatar.md) |
 
 ## Heterogeneous training
@@ -20,7 +20,7 @@ Train across **different hardware platforms** simultaneously:
 
 | Hardware Combination         | User Guide |
 |:----------------------------:|:----------|
-| Nvidia GPU + Iluvatar GPU    | [](nvidia_iluvatar_hetero_train.md) |
+| Nvidia GPU + Iluvatar GPU    | [](nvidia-iluvatar-hetero-train.md) |
 
 ```{toctree}
 :maxdepth: 3
@@ -28,5 +28,5 @@ Train across **different hardware platforms** simultaneously:
 nvidia
 iluvatar
 kunlun
-nvidia_iluvatar_hetero_train
+nvidia-iluvatar-hetero-train
 ```
