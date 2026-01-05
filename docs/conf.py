@@ -351,7 +351,7 @@ else:
     # No html_sidebars for Sphinx Book Theme
     html_sidebars = {}
     # No html_context for Sphinx Book Theme
-    html_last_updated_fmt = '%b %d, %Y %H:%M'
+    html_last_updated_fmt = '%b %d, %Y'
 
 rst_epilog = """
 .. |org_brand| replace:: KernelGen Community
