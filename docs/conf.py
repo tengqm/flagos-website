@@ -298,6 +298,7 @@ if html_theme == "pydata_sphinx_theme":
 
     html_context = {
     "default_mode": "dark"
+    }
 
 else:
     # Sphinx Book Theme configuration for all other projects
