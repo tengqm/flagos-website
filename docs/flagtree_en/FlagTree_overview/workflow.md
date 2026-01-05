@@ -2,5 +2,4 @@
 
 The following diagram briefly demonstrates how to use FlagGems to generate operators.
 
-1. Install FlagTree
-2. Use FlagTree complier language
+![alt text](../assets/images/flagtree-workflow.png)
