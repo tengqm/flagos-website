@@ -29,7 +29,7 @@ The following list includes the supported tools:
 ## Dependencies
 
 - **System dependencies**  
-  FlagTree is primarily tested on Ubuntu. If you are not on a Linux system, we recommend using an Ubuntu virtual machine or Docker container for installation.  
+  FlagTree is primarily tested on Ubuntu. We recommend using a Linux virtual machine or Docker container for installation.
   The following table lists the dependencies for Ubuntu.
 
     | Dependency     | Description |

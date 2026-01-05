@@ -12,55 +12,29 @@
     ```
 
 2. Install Ubuntu and Python dependencies.
-   1. Install Ubuntu dependencies
 
-      ```{code-block} bash
-      # Install system depedencies for Ubuntu
-       sudo apt install zlib1g zlib1g-dev libxml2 libxml2-dev
-      ```
+    ```{code-block} bash
+    # Install dependencies for Ubuntu
+    apt install zlib1g zlib1g-dev libxml2 libxml2-dev  # ubuntu
+    # Install dependencies for Python
+    # The dependencies are included in the requirements.txt in the flagtree/python directory.
+    cd python; python3 -m pip install -r requirements.txt
 
-   2. Install Python dependencies.
-        The dependencies are included in the requirments.txt in the flagtree/python directory.
-
-       ```{code-block} bash
-       # 1. Navigate to your project directory
-       cd python
-
-       # 2. Create a virtual environment (if it doesn't exist)
-
-       python3 -m venv venv
-
-       # 3. Activate the virtual environment
-
-       source venv/bin/activate
-
-       # 4. Install the Python dependencies
-
-       python3 -m pip install -r requirements.txt
-       ```
+    ```
 
 3. Build and install FlagTree
     Below are the common commands used to build and install FlagTree. However, different backends have different requirements. For more information, see the next section.
 
     ```{code-block} bash
     # for branch main、triton_v3.2.x、triton_v3.3.x
-
     cd python
-
     # Set the environment variable to specify the computational backend
-
     export FLAGTREE_BACKEND=backendxxx
-
     # Install the package in development mode with verbose output and system dependencies
-
     python3 -m pip install . --no-build-isolation -v
-
     # Print the metadata and location of the installed flagtree package
-
     python3 -m pip show flagtree
-
     # Return to the home directory and print the file path of the installed Triton library
-
     cd; python3 -c 'import triton; print(triton.__path__)'
     ```
 

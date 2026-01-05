@@ -2,6 +2,10 @@
 
 This section includes requirements of using FlagGems, including supported platforms, models, dependencies, tools and other FlagOS component. FlagGems can be successfully installed and run only when all requirements are met.
 
+## Operating System
+
+FlagGems is primarily tested on Ubuntu. We recommend using a Linux virtual machine or Docker container for installation.
+
 ## Supported hardware platforms
 
 The following table lists the supported hardware platforms:
