@@ -23,7 +23,7 @@ sd_hide_title: true
       A high-performance general-purpose operator library implemented with the Triton programming language and its extended languages.
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagGems/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -34,7 +34,7 @@ sd_hide_title: true
       An open-source, unified compiler for multiple AI chips.
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagTree/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -45,7 +45,7 @@ sd_hide_title: true
       A comprehensive toolkit designed to support the entire lifecycle of large models.
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FFlagScale/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -56,7 +56,7 @@ sd_hide_title: true
       A scalable and adaptive unified communication library for cross-chip environments.
     </div>
     <div class="card-footer">
-      <a href="https://test-i18n-kernelgen-en.readthedocs.io/en/latest/" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagCX/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -78,7 +78,7 @@ sd_hide_title: true
       A platform dedicated to the automatic migration, adaptation and release of large models for multi-architecture AI chips.
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagRelease/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -89,7 +89,7 @@ sd_hide_title: true
       An integrated AI hardware evaluation engine.
     </div>
     <div class="card-footer">
-      <a href="#" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagPerf/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 </div>
