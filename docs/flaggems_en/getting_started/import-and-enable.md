@@ -1,8 +1,8 @@
 # Import and enable FlagGems
 
-FlagGems supports two common usage patterns: patching PyTorch ATen ops (recommended) and calling FlagGems ops explicitly.
+FlagGems supports two common usage patterns: patching PyTorch ATen operators (recommended) and calling FlagGems operators explicitly.
 
-- Enable FlagGems and patch ATen ops
+- Enable FlagGems and patch ATen operators
    After `flag_gems.enable()`, supported `torch.* / torch.nn.functional.*` calls will be dispatched to FlagGems implementations automatically.
   - Global enablement
     To apply FlagGems optimizations across your entire script or interactive session:
