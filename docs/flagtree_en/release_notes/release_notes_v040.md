@@ -7,6 +7,7 @@
     The unified backend specialization is applied to ILUVATAR and Huawei Ascend.
   - Added new access backend
     enflame is added.
+
 - **Changed Features**
   - Enhanced the unified intermediate representation layer for DSA architecture chips
     The unified IR layer has been validated on Ascend and AIPU.
