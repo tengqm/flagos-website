@@ -7,7 +7,7 @@ on:
 
 jobs:
   unit-test:
-    runs-on: h20
+    runs-on: [self-hosted, h20]
     steps:
       - name: Checkout Code
         uses: actions/checkout@v6
