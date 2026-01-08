@@ -1,4 +1,4 @@
-# FlagGems overview
+# FlagGems Overview
 
 FlagGems is a high-performance general-purpose operator library implemented with the Triton programming language and its extended languages. FlagGems is designed to provide a suite of general-purpose operators for large models, accelerating the inference and training of models across multiple backend platforms.
 

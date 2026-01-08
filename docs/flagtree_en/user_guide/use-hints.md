@@ -1,4 +1,4 @@
-# User Guide
+# Use Hints
 
 `flagtree_hints` allows users to provide optimization hints to the compiler through trailing comments in the Triton Kernel code.
 

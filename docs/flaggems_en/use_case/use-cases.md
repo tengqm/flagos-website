@@ -1,4 +1,4 @@
-# Use cases
+# Use Cases
 
 This section includes use cases for FlagGems.
 

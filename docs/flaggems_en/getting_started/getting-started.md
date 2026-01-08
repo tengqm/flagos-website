@@ -1,4 +1,4 @@
-# Getting started
+# Getting Started
 
 This section covers the requirements for installing and running FlagGems and guides you through installing, importing, enabling, and using its experimental operators.
 
