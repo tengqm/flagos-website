@@ -60,4 +60,4 @@ The following list includes the supported tools:
 ## Features on different branches
 
 - Hints are available on specific branches. For more information, see [Use Hints](/user_guide/use-hints.md).
-- TLE-Lite, TLE-Struct, and TLE-Raw are available on trition_3.5.x.
+- TLE-Lite, TLE-Struct, and TLE-Raw are available on trition_3.5.x. for GPU vendors and Huawei Ascend.
