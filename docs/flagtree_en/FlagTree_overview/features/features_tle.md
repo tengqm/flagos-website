@@ -4,7 +4,7 @@ TLE-Lite, TLE-Struct, and TLE-Raw are the compiler hint languages, located in th
 
 The following diagram demonstrates the location of TLE-Lite, TLE-Struct, and TLE-Raw in the AI ecosystem.
 
-![alt text](../assets/images/three-level-tle.png)
+![alt text](../../assets/images/three-level-tle.png)
 
 These three compiler hint languages provide different levels of performance optimizations for different users:
 
@@ -18,6 +18,6 @@ Hints, TLE-Lite and TLE-Struct will eventually lower to LLVM (Low Level Virtual 
 
 The following diagram illustrates the TLE-Raw's compatibility with existing DSLs (TileLang and cuTile) as well as essential libraries and tools (PyCUDA and MLIR Pybind), and also the location in the AI ecosystem.
 
-![alt text](../assets/images/tle-raw.png)
+![alt text](../../assets/images/tle-raw.png)
 
 For TLE usage information, see [Use TLE-Lite](/user_guide/use-tle-lite.md), [Use TLE-Struct](/user_guide/use-tle-struct.md), and [Use TLE-Raw](/user_guide/use-tle-raw.md).
