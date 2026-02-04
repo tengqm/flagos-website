@@ -1,6 +1,6 @@
 # FlagOS Overview
 
-FlagOS is a unified, open-source system software stack designed for a variety of AI chips.
+FlagOS is a fully open-source AI system software stack for heterogeneous AI chips, allowing AI models to be developed once and seamlessly ported to a wide range of AI hardware with minimal effort.
 
 ## Composition modules of FlagOS
 
