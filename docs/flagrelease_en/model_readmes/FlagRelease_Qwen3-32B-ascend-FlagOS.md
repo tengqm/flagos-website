@@ -74,7 +74,7 @@ modelscope download --model FlagRelease/Qwen3-32B-ascend-FlagOS --local_dir /dat
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_ascend_qwen3sgl
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_qwen3-32b-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.11.13-torch_npu2.6.0.post1-pcp_cann8.2.rc1-gpu_ascend001-arc_arm64-driver_25.2.0:2509231411
 ```
 
 ### Start the inference service
@@ -95,12 +95,13 @@ docker run --name flagos \
     -v /data:/data \
     -v /root/.cache:/root/.cache \
     -v /root/.ssh/.ssh:/root/.ssh/.ssh \
-    harbor.baai.ac.cn/flagrelease-public/flagrelease_ascend_qwen3sgl bash
+    harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_qwen3-32b-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.11.13-torch_npu2.6.0.post1-pcp_cann8.2.rc1-gpu_ascend001-arc_arm64-driver_25.2.0:2509231411 bash
 ```
 
 ### Serve
 
 ```bash
+docker exec -it flagos /bin/bash
 flagscale serve qwen3
 
 ```
