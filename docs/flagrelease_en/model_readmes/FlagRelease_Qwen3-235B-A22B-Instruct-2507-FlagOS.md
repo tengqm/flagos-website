@@ -73,19 +73,20 @@ modelscope download --model Qwen/Qwen3-235B-A22B-Instruct-2507 --local_dir /shar
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_qwen3_2507
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3-235b-a22b-instruct-2507-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.7.0-pcp_cuda12.9-gpu_nvidia005-arc_amd64-driver_570.124.06:2507281025
 ```
 
 ### Start the inference service
 
 ```bash
 #Container Startup
-docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_qwen3_2507   sleep infinity
+docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3-235b-a22b-instruct-2507-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.7.0-pcp_cuda12.9-gpu_nvidia005-arc_amd64-driver_570.124.06:2507281025   sleep infinity
 ```
 
 ### Serve
 
 ```bash
+docker exec -it flagos bash
 flagscale serve qwen3
 
 ```

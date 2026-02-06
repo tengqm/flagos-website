@@ -76,13 +76,13 @@ FlagEval (Libra)** is a comprehensive evaluation system and open platform for la
 
 ```python
 pip install modelscope
-modelscope download --model BAAI/RoboBrain2.0-7B --local_dir /data/weights/RoboBrain2.0-7B/
+modelscope download --model FlagRelease/RoboBrain2.0-7B-FlagOS-Ascend --local_dir /data/weights/RoboBrain2.0-7B/
 ```
 
 ### Download FlagOS Image
 
 ```python
-docker pull flagrelease-registry.cn-beijing.cr.aliyuncs.com/flagrelease/flagrelease:flagrelease_ascend_robobrain2_7b
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.0-7b-tree_none-gems_2.2-scale_0.8.0-cx_none-python_3.11.11-torch_npu2.6.0rc1-pcp_cann8.2.rc1.alpha002-gpu_ascend001-arc_arm64-driver_25.2.0:2508251528
 ```
 
 ### Start the inference service 
@@ -107,7 +107,7 @@ docker run -itd --name flagos \
     -e CPU_AFFINITY_CONF=2 \
     -e PYTORCH_NPU_ALLOC_CONF=max_split_size_mb:256 \
     -e USE_FLAGGEMS=true \
-  flagrelease-registry.cn-beijing.cr.aliyuncs.com/flagrelease/flagrelease:flagrelease_ascend_robobrain2_7b bash
+  harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.0-7b-tree_none-gems_2.2-scale_0.8.0-cx_none-python_3.11.11-torch_npu2.6.0rc1-pcp_cann8.2.rc1.alpha002-gpu_ascend001-arc_arm64-driver_25.2.0:2508251528 bash
 
 #Enter the container
 docker exec -it flagos bash

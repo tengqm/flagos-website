@@ -71,7 +71,7 @@ modelscope download --model BAAI/RoboBrain-X0-Preview --local_dir /data/shared/w
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_ascend_x0_norand
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain-x0-preview-tree_none-gems_3.0-scale_none-cx_none-python_3.11.13-torch_npu2.7.1_gitb7c90d0-pcp_cann8.2.0.0.201_8.2.rc1-gpu_ascend001-arc_arm64-driver_25.2.0:202511071524
 ```
 
 ### Start the inference service
@@ -92,7 +92,7 @@ docker run --name flagos \
     -v /data:/data \
     -v /root/.cache:/root/.cache \
     -v /root/.ssh/.ssh:/root/.ssh/.ssh \
-    harbor.baai.ac.cn/flagrelease-public/flagrelease_ascend_x0_norand bash```
+    harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain-x0-preview-tree_none-gems_3.0-scale_none-cx_none-python_3.11.13-torch_npu2.7.1_gitb7c90d0-pcp_cann8.2.0.0.201_8.2.rc1-gpu_ascend001-arc_arm64-driver_25.2.0:202511071524 bash```
 
 ### Serve
 

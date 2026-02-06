@@ -81,7 +81,7 @@ modelscope download --model FlagRelease/RoboBrain2.5-8B-FlagOS --local_dir /data
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.5-8b-tree_0.4.0_ascend3.2e-gems_4.2.0-scale_1.0.0-cx_0.8.0-python_3.11.13-torch_npu2.8.0-pcp_cann8.3.0.2.220_8.3.rc2-gpu_ascend001-arc_arm64-driver_25.2.0:latest
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.5-8b-tree_0.4.0_ascend3.2e-gems_4.2.0-scale_1.0.0-cx_0.8.0-python_3.11.13-torch_npu2.8.0-pcp_cann8.3.0.2.220_8.3.rc2-gpu_ascend001-arc_arm64-driver_25.2.0:2601291835
 
 ### Start the inference service
 
@@ -101,7 +101,7 @@ docker run -itd --name flagos -u root --privileged=true --shm-size=1000g --net=h
     -e CPU_AFFINITY_CONF=2 \
     -e PYTORCH_NPU_ALLOC_CONF=max_split_size_mb:256 \
     -e USE_FLAGGEMS=true \
-harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.5-8b-tree_0.4.0_ascend3.2e-gems_4.2.0-scale_1.0.0-cx_0.8.0-python_3.11.13-torch_npu2.8.0-pcp_cann8.3.0.2.220_8.3.rc2-gpu_ascend001-arc_arm64-driver_25.2.0:latest bash
+harbor.baai.ac.cn/flagrelease-public/flagrelease-ascend-release-model_robobrain2.5-8b-tree_0.4.0_ascend3.2e-gems_4.2.0-scale_1.0.0-cx_0.8.0-python_3.11.13-torch_npu2.8.0-pcp_cann8.3.0.2.220_8.3.rc2-gpu_ascend001-arc_arm64-driver_25.2.0:2601291835 bash
 ```
 
 ### Serve
