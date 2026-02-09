@@ -13,23 +13,32 @@ The table lists the optional parameters for enabling FlagGems.
 
 | Parameter      | Type      | Description                                                           |
 | -------------- | --------- | --------------------------------------------------------------------- |
-| `unused`       | List[str] | Disable specific operators                                            |
+| `unused`       | List[str] | Disable specific operators (for `enable`)                             |
+| `include`      | List[str] | Enable only specific operators (for `only_enable`)                    |
 | `record`       | bool      | Log operator calls for debugging or profiling                         |
 | `path`         | str       | Log file path (only used when `record=True`)                          |
 
-### Example 1: Selectively Disable Specific Operators
+### Example 1: Selectively disable specific operators
 
-You can use the `unused` parameter to exclude certain operators from being accelerated by `FlagGems`. This is especially useful when a particular operator does not behave as expected in your workload, or if you're seeing suboptimal performance and want to temporarily fall back to the original implementation.
-
+You can use the `unused` parameter in `enable()` to exclude certain operators from being accelerated by `FlagGems`. This is especially useful when a particular operator does not behave as expected in your workload, or if you're seeing suboptimal performance and want to temporarily fall back to the original implementation.
 
 ```{code-block} python
 flag_gems.enable(unused=["sum", "add"])
 ```
 
-
 With this configuration, `sum` and `add` will continue to use the native PyTorch implementations, while all other supported operators will use `FlagGems` versions.
 
-### Example 2: Enable Debug Logging
+### Example 2：Selectively enable specific operators
+
+Use `only_enable()` with the include parameter to accelerate only a subset of operators:
+
+```{code-block} python
+flag_gems.only_enable(include=["rms_norm", "softmax"])
+```
+
+This registers only the specified operators, skipping all others.
+
+### Example 3: Enable debug logging
 
 Enable `record=True` to log operator usage during runtime, and specify the output path with `path`.
 
@@ -44,7 +53,6 @@ After running your script, inspect the log file (e.g., `gems_debug.log`) to see 
 
 Sample log content:
 
-
 ```{code-block} shell
 $ cat ./gems_debug.log
 [DEBUG] flag_gems.ops.fill: GEMS FILL_SCALAR_
@@ -53,6 +61,25 @@ $ cat ./gems_debug.log
 [DEBUG] flag_gems.fused.reshape_and_cache: GEMS RESHAPE_AND_CACHE
 ```
 
+### Example 4: Query registered operators
+
+After enabling `FlagGems`, you can query which operators have been registered:
+
+```{code-block} python
+import flag_gems
+
+flag_gems.enable()
+
+# Get list of registered function names
+registered_funcs = flag_gems.all_registered_ops()
+print("Registered functions:", registered_funcs)
+
+# Get list of registered operator keys
+registered_keys = flag_gems.all_registered_keys()
+print("Registered keys:", registered_keys)
+```
+
+This is useful for debugging or verifying which operators are active.
 
 ## Manually set and verify hardware platform
 
@@ -128,7 +155,6 @@ To accelerate standard PyTorch ops (e.g., `add`, `masked_fill`) in vLLM, simply 
 
 To further optimize vLLM’s internal kernels, `flag_gems` provides an additional API:
 
-
 ```{code-block} python
 flag_gems.apply_gems_patches_to_vllm(verbose=True)
 ```
@@ -144,7 +170,6 @@ Patched SiluAndMul.forward_cuda with FLAGGEMS custom_gems_silu_and_mul
 Use this when more comprehensive `flag_gems` coverage is desired.
 
 #### Complete example: Enable `flag_gems` in vLLM Inference
-
 
 ```{code-block} python
 from vllm import LLM, SamplingParams
@@ -269,7 +294,6 @@ Here’s how to enable `flag_gems` in a distributed vLLM + DeepSeek deployment:
 4. **Start distributed inference and confirm acceleration**
    Launch the service and check the startup logs on each node for messages indicating that operators have been overridden.
 
-
     ```
     Overriding a previously registered kernel for the same operator and the same dispatch key
     operator: aten::add.Tensor(Tensor self, Tensor other, *, Scalar alpha=1) -> Tensor
@@ -375,7 +399,6 @@ If you want to **directly call C++-wrapped operators**, bypassing any patch logi
 ```{code-block} python
 output = torch.ops.flag_gems.fused_add_rms_norm(...)
 ```
-
 
 This gives you **precise control** over operator dispatch, which can be beneficial in performance-sensitive contexts.
 
