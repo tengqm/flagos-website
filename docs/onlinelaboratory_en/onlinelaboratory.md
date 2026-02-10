@@ -1,4 +1,4 @@
-# Online laboratory user guide
+# Online Laboratory User Guide
 
 1. After logging into Flag OS, click the **Online Laboratory** tab in the top-right corner.
 
@@ -19,7 +19,6 @@
       ![alt text](asset/public-access.jpg)
 
 4. Query the computing power configuration through terminal commands according to the card type.
-    The card type is indicated in the resource information of the selected development environment mentioned in step 2.
     - For Iluvatar cards, use the command:
 
        ```{code-block} bash
