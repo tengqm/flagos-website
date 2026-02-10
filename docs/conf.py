@@ -181,7 +181,6 @@ multiproject_projects = {
         },
     },
 }
-}
 
 docset = get_project(multiproject_projects)
 
