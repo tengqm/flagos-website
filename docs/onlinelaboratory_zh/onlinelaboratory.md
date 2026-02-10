@@ -5,7 +5,7 @@
 2. 查看与你账号关联的所有未释放的环境容器、算力资源详情、访问入口及其他相关信息。  
    ![alt text](asset/online-lab.jpg)
 
-3. 在 **云在线开发环境访问** 列中，使用以下任一方式访问云端在线开发环境：
+3. 在 **环境访问** 列中，使用以下任一方式访问云端在线开发环境：
     - **方式一：直接访问开发环境**  
       如需直接访问开发环境，请按以下步骤操作：  
       1. 在 **密钥** 旁点击复制图标，复制密钥。  
@@ -19,15 +19,14 @@
       ![alt text](asset/public-access.jpg)
 
 4. 根据显卡类型，通过终端命令查询算力配置信息。  
-   显卡类型可在步骤 2 中所选开发环境的资源信息中查看。
-    - 对于 Iluvatar 显卡，使用以下命令：
+    - 对于天数加速卡，使用以下命令：
 
        ```{code-block} bash
        ixsm
        ```
 
       ![alt text](asset/ascend-gpu-info.jpg)
-    - 对于华为昇腾（Huawei Ascend）显卡，使用以下命令：
+    - 对于华为昇腾加速卡，使用以下命令：
 
        ```{code-block} python
        npu-smi info
@@ -35,7 +34,7 @@
 
       ![alt text](asset/iluvatar-gpu-info.jpg)
 
-5. 你可以通过以下方式上传或下载代码包、模型等文件：
+5. 您可以通过以下方式上传或下载代码包、模型等文件：
      - 在 `Workspace` 上点击右键，选择 **Upload...**  
       ![alt text](asset/upload.jpg)
      - 在 `Workspace` 上点击右键，选择 **Download...**  
