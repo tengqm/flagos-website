@@ -92,6 +92,17 @@ sd_hide_title: true
       <a href="https://docs.flagos.io/projects/FlagPerf/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
+
+  <!-- OnlineLaboratory -->
+  <div class="flagos-card">
+    <h3 class="card-title">Online Laboratory</h3>
+    <div class="card-description">
+      An online laboratory providing cloud-based development environments.
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/onlinelaboratory/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
 </div>
 
 <div class="call-to-action">
