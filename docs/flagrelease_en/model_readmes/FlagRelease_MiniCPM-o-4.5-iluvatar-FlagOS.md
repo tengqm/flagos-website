@@ -8,7 +8,7 @@ frameworks:
 
 **FlagOS** is a unified heterogeneous computing software stack for large models, co-developed with leading global chip manufacturers. With core technologies such as the **FlagScale**, together with vllm-plugin-fl, distributed training/inference framework, **FlagGems** universal operator library, **FlagCX** communication library, and **FlagTree** unified compiler, the **FlagRelease** platform leverages the **FlagOS** stack to automatically produce and release various combinations of \<chip + open-source model\>. This enables efficient and automated model migration across diverse chips, opening a new chapter for large model deployment and application.
 
-Based on this, the **MiniCPM-o-4.5-iluvatar-FlagOS** model is adapted for the Hygon chip using the FlagOS software stack, enabling:
+Based on this, the **MiniCPM-o-4.5-iluvatar-FlagOS** model is adapted for the Iluvatar chip using the FlagOS software stack, enabling:
 
 
 ## Integrated Deployment

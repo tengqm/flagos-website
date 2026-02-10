@@ -74,7 +74,7 @@ modelscope download --model FlagRelease/Hunyuan-A13B-Instruct-FlagOS --local_dir
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_hunyuan
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_hunyuan-a13b-instruct-tree_none-gems_4.1-scale_0.8.0-cx_none-python_3.12.3-torch_2.9.0-pcp_cuda13.0-gpu_nvidia004-arc_amd64-driver_535.183.06:2512041016
 ```
 
 ### Start the inference service
@@ -85,12 +85,13 @@ docker run --init --detach --net=host --user 0 --ipc=host \
            -v /data:/data --security-opt=seccomp=unconfined \
            --privileged --ulimit=stack=67108864 --ulimit=memlock=-1 \
            --shm-size=512G --gpus all -e USE_FLAGGEMS=1 \
-           --name qwen3_8b_release harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_hunyuan sleep infinity
+           --name flagos harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_hunyuan-a13b-instruct-tree_none-gems_4.1-scale_0.8.0-cx_none-python_3.12.3-torch_2.9.0-pcp_cuda13.0-gpu_nvidia004-arc_amd64-driver_535.183.06:2512041016 sleep infinity
 ```
 
 ### Serve
 
 ```bash
+docker exec -it flagos bash
 flagscale serve hunyuan
 
 ```

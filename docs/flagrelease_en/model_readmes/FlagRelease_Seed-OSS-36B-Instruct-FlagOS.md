@@ -67,26 +67,27 @@ FlagEval (Libra)** is a comprehensive evaluation system and open platform for la
 
 ```bash
 pip install modelscope
-modelscope download --model ByteDance-Seed/Seed-OSS-36B-Instruct --local_dir /share/models/Seed-OSS-36B-Instruct
+modelscope download --model FlagRelease/Seed-OSS-36B-Instruct-FlagOS --local_dir /share/models/Seed-OSS-36B-Instruct
 
 ```
 
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_seed
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_seed-oss-36b-instruct-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.8.0-pcp_cuda12.9-gpu_nvidia004-arc_amd64-driver_535.183.06:2509111457
 ```
 
 ### Start the inference service
 
 ```bash
 #Container Startup
-docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_seed   sleep infinity
+docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_seed-oss-36b-instruct-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.8.0-pcp_cuda12.9-gpu_nvidia004-arc_amd64-driver_535.183.06:2509111457   sleep infinity
 ```
 
 ### Serve
 
 ```bash
+docker exec -it flagos bash
 flagscale serve seed
 
 ```
