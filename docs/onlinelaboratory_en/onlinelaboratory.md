@@ -10,7 +10,7 @@
       To access the environment directly, follow these steps:
       1. Navigate next to **Secret Key**, and click the Copy icon to copy the key.
       2. Click **Enter IDE**. When the Welcome dialog opens, paste the key and click **Submit**.
-      ![alt text](asset/welcom.jpg)
+      ![alt text](asset/welcome.jpg)
     - **Option 2: Access via Public Network**
       To access the development environment from a public network, follow these steps:
       1. You can map the service for the development environment to port 30000.
