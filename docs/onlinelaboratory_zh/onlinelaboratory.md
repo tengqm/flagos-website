@@ -19,14 +19,14 @@
       ![alt text](asset/public-access.jpg)
 
 4. 根据显卡类型，通过终端命令查询算力配置信息。  
-    - 对于 Iluvatar 显卡，使用以下命令：
+    - 对于天数加速卡，使用以下命令：
 
        ```{code-block} bash
        ixsm
        ```
 
       ![alt text](asset/ascend-gpu-info.jpg)
-    - 对于华为昇腾（Huawei Ascend）显卡，使用以下命令：
+    - 对于华为昇腾加速卡，使用以下命令：
 
        ```{code-block} python
        npu-smi info
