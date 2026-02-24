@@ -22,17 +22,17 @@
     - 对于天数加速卡，使用以下命令：
 
        ```{code-block} bash
-       ixsm
+       ixsmi
        ```
 
-      ![alt text](asset/ascend-gpu-info.jpg)
+      ![alt text](asset/iluvatar-gpu-info.jpg)
     - 对于华为昇腾加速卡，使用以下命令：
 
        ```{code-block} python
        npu-smi info
        ```
 
-      ![alt text](asset/iluvatar-gpu-info.jpg)
+      ![alt text](asset/ascend-gpu-info.jpg)
 
 5. 您可以通过以下方式上传或下载代码包、模型等文件：
      - 在 `Workspace` 上点击右键，选择 **Upload...**  

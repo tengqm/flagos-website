@@ -22,17 +22,17 @@
     - For Iluvatar cards, use the command:
 
        ```{code-block} bash
-       ixsm
+       ixsmi
        ```
 
-      ![alt text](asset/ascend-gpu-info.jpg)
+      ![alt text](asset/iluvatar-gpu-info.jpg)
     - For Huawei Ascend cards, use the command:
 
        ```{code-block} python
        npu-smi info
        ```
 
-      ![alt text](asset/iluvatar-gpu-info.jpg)
+      ![alt text](asset/ascend-gpu-info.jpg)
 
 5. You can upload or download files such as code packages and models through the following methods:
      - Right-click your `Workspace` and select **Upload...**
