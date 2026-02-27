@@ -74,19 +74,20 @@ modelscope download --model openai-mirror/gpt-oss-120b --local_dir /share/models
 ### Download FlagOS Image
 
 ```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_gpt
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_gpt-oss-120b-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.9.0.dev20250804_cu128-pcp_cuda12.9-gpu_nvidia005-arc_amd64-driver_570.124.06:2508281229
 ```
 
 ### Start the inference service
 
 ```bash
 #Container Startup
-docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease_nvidia_gpt   sleep infinity
+docker run --rm --init --detach   --net=host --uts=host --ipc=host   --security-opt=seccomp=unconfined   --privileged=true   --ulimit stack=67108864   --ulimit memlock=-1   --ulimit nofile=1048576:1048576   --shm-size=32G   -v /share:/share   --gpus all   --name flagos   harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_gpt-oss-120b-tree_none-gems_3.0-scale_0.8.0-cx_none-python_3.12.3-torch_2.9.0.dev20250804_cu128-pcp_cuda12.9-gpu_nvidia005-arc_amd64-driver_570.124.06:2508281229   sleep infinity
 ```
 
 ### Serve
 
 ```bash
+docker exec -it flagos bash
 flagscale serve gpt_oss
 
 ```

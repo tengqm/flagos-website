@@ -18,6 +18,8 @@ To build each project, the ``PROJECT`` environment variable is used.
    $ PROJECT=flagtree_zh make html  # build the flagtree Chinese project
    $ PROJECT=flagrelease_zh make html  # build the flagrelease Chinese project
    $ PROJECT=flagperf_zh make html  # build the flagperf Chinese project
+   $ PROJECT=onlinelaboratory_en make html  # build the onlinelaboratory English project
+   $ PROJECT=onlinelaboratory_zh make html  # build the onlinelaboratory Chinese project
 
 For more information read https://sphinx-multiproject.readthedocs.io/.
 """
@@ -162,6 +164,20 @@ multiproject_projects = {
         "config": {
             "project": "FlagPerf 文档中心",
             "html_title": "FlagPerf 文档中心",
+        },
+    },
+        "onlinelaboratory_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "Online Laboratory Documentation",
+            "html_title": "Online Laboratory Documentation",
+        },
+    },
+    "onlinelaboratory_zh": {
+        "use_config_file": False,
+        "config": {
+            "project": "线上实验室文档中心",
+            "html_title": "线上实验室文档中心",
         },
     },
 }

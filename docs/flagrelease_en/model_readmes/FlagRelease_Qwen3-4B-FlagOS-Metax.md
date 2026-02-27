@@ -74,7 +74,7 @@ modelscope download --model Qwen/Qwen3-4B --local_dir /nfs/Qwen3-4B
 ### Download FlagOS Image
 
 ```bash
-docker pull flagrelease-registry.cn-beijing.cr.aliyuncs.com/flagrelease/flagrelease:flagrelease_metax_qwen3
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-metax-release-model_qwen3-4b-tree_none-gems_2.2-scale_0.6.0-cx_none-python_3.10.10-torch_2.4.0_metax2.29.2.6-pcp_maca2.29.2.7-gpu_metax001-arc_amd64-driver_3.3.12:2508011527
 ```
 
 ### Start the inference service
@@ -86,7 +86,7 @@ docker run -it --device=/dev/dri --device=/dev/mxcd --group-add video \
     --security-opt seccomp=unconfined --security-opt apparmor=unconfined \
     --shm-size '100gb' --ulimit memlock=-1 \
     -v /usr/local/:/usr/local/ -v /nfs:/nfs \
-    flagrelease-registry.cn-beijing.cr.aliyuncs.com/flagrelease/flagrelease:flagrelease_metax_qwen3 /bin/bash
+    harbor.baai.ac.cn/flagrelease-public/flagrelease-metax-release-model_qwen3-4b-tree_none-gems_2.2-scale_0.6.0-cx_none-python_3.10.10-torch_2.4.0_metax2.29.2.6-pcp_maca2.29.2.7-gpu_metax001-arc_amd64-driver_3.3.12:2508011527 /bin/bash
 ```
 
 ### Serve

@@ -17,10 +17,20 @@ FlagGems supports two common usage patterns: patching PyTorch ATen operators (re
       y = torch.mm(x, x)
      ```
 
-    Once enabled, all supported operators in your code will automatically be replaced with the optimized FlagGems implementations, no further changes needed.
+    Once enabled, all supported operators in your code will automatically be replaced with the optimized `FlagGems` implementations, no further changes needed.
+
+  - Selective enablement
+    To enable only specific operators and skip the rest:
+
+    ```{code-block} python
+    import flag_gems
+
+    # Enable only selected operators
+    flag_gems.only_enable(include=["rms_norm", "softmax"])
+    ```
 
   - Scoped enablement
-    To apply FlagGems optimizations only within a specific block or scope:
+    For finer control, you can enable `FlagGems` only within a specific code block or scope using a context manager:
 
      ```{code-block} python
       import torch
@@ -37,7 +47,25 @@ FlagGems supports two common usage patterns: patching PyTorch ATen operators (re
     - Compare correctness between implementations
     - Apply acceleration selectively in complex workflows
 
-The `flag_gems.enable(...)` function supports several optional parameters. For more information, see [Use optional parameters for FlagGems enablement function](/user_guide/how-to-use-flaggems.md#use-optional-parameters-for-flaggems-enablement-function).
+    Within the enabled scope, you can also selectively enable the operators in the context manager:
+
+    ```{code-block} python
+    # Enable only specific operators in the scope
+    with flag_gems.use_gems(include=["sum", "add"]):
+        # Only sum and add will be accelerated
+        ...
+
+    # Or exclude specific operators
+    with flag_gems.use_gems(exclude=["mul", "div"]):
+        # All except mul and div will be accelerated
+        ...
+    ```
+
+    ```{note}
+    The `include` parameter has higher priority than `exclude`. If both are provided, `exclude` is ignored.
+    ```
+
+  The `flag_gems.enable(...)` and `flag_gems.only_enable(...)` functions support several optional parameters. For more information, see [Use optional parameters for FlagGems enablement function](/user_guide/how-to-use-flaggems.md#use-optional-parameters-for-flaggems-enablement-function).
 
 - Explicitly call FlagGems ops
    You can also bypass PyTorch dispatch and call operators from `flag_gems.ops` directly without using `enable()`:
