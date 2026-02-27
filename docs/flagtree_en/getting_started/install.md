@@ -478,25 +478,6 @@ sh python/scripts/unpack_triton_build_deps.sh ./build-deps-triton_3.5.x-linux-x6
 
 After executing the above script, the original ~/.triton directory will be renamed, and a new ~/.triton directory will be created to store the pre-downloaded packages.
 
-### Q&A
-
-Q: After installation, running the program reports: version GLIBC or GLIBCXX not found
-
-A: Check which GLIBC / GLIBCXX versions are supported by libc.so.6 and libstdc++.so.6.0.30 in your environment:
-
-```{code} shell
-strings /lib/x86_64-linux-gnu/libc.so.6 |grep GLIBC
-strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 | grep GLIBCXX
-```
-
-If the required GLIBC / GLIBCXX version is supported, you can also try:
-
-```{code} shell
-export LD_PRELOAD="/lib/x86_64-linux-gnu/libc.so.6"  # If GLIBC cannot be found
-export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30"  # If GLIBCXX cannot be found
-export LD_PRELOAD="/lib/x86_64-linux-gnu/libc.so.6 \
-    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30"  # If neither GLIBC nor GLIBCXX can be found
-```
 
 ## Option 2: Install FlagTree wheel package
 
@@ -540,4 +521,24 @@ python3 -m pytest -s
 # other backends
 cd third_party/${backend_name}/python/test/unit
 python3 -m pytest -s
+```
+
+## Q&A
+
+Q: After installation, running the program reports: version GLIBC or GLIBCXX not found
+
+A: Check which GLIBC / GLIBCXX versions are supported by libc.so.6 and libstdc++.so.6.0.30 in your environment:
+
+```{code} shell
+strings /lib/x86_64-linux-gnu/libc.so.6 |grep GLIBC
+strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30 | grep GLIBCXX
+```
+
+If the required GLIBC / GLIBCXX version is supported, you can also try:
+
+```{code} shell
+export LD_PRELOAD="/lib/x86_64-linux-gnu/libc.so.6"  # If GLIBC cannot be found
+export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30"  # If GLIBCXX cannot be found
+export LD_PRELOAD="/lib/x86_64-linux-gnu/libc.so.6 \
+    /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30"  # If neither GLIBC nor GLIBCXX can be found
 ```
