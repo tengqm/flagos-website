@@ -246,6 +246,8 @@ Based on Triton 3.2, aarch64
    - Use docker image <https://baai-cp-web.ks3-cn-beijing.ksyuncs.com/trans/docker_image_cann-8.2.rc1.alpha003-a3-ubuntu22.04-py3.11-flagtree.tar.gz> (5.4GB)
 
 2. Reinstall CANN Toolkit and OPS
+
+   {style=lower-alpha}
    1. Register an account at <https://www.hiascend.com/developer/download/community/result?module=cann>, and download the CANN Toolkit and OPS.
    2. Install the CANN Tookit and OPS.
 
@@ -477,7 +479,6 @@ sh python/scripts/unpack_triton_build_deps.sh ./build-deps-triton_3.5.x-linux-x6
 ```
 
 After executing the above script, the original ~/.triton directory will be renamed, and a new ~/.triton directory will be created to store the pre-downloaded packages.
-
 
 ## Option 2: Install FlagTree wheel package
 
