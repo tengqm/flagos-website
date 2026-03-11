@@ -341,7 +341,7 @@ else:
         main_site_url = "https://docs.flagos.io/en/latest/"
         main_site_text = "Back to FlagOS Documentation"
     else:
-        main_site_url = "https://docs.flagos.io/zh/latest/"
+        main_site_url = "https://docs.flagos.io/en/latest/"
         main_site_text = "返回 FlagOS 文档"
 
     templates_path = ["_templates"]
