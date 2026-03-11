@@ -8,5 +8,6 @@ common-architecture.md
 flagtree-extensible-framework.md
 features-hints.md
 features-tle.md
+flir.md
 
 ```
