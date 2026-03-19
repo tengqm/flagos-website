@@ -4,7 +4,7 @@ on:
   schedule:
     # Run daily at 18:00 UTC (02:00 Beijing time next day)
     - cron: '0 18 * * *'
-  
+
   workflow_dispatch:
     inputs:
       reason:
@@ -16,7 +16,7 @@ on:
   push:
     paths:
       - '.github/workflows/update-all-models.yml'
-      - 'docs/scripts/update_models_aihuanxin.py'      
+      - 'docs/scripts/update_models_aihuanxin.py'
       - 'docs/scripts/update_models_huggingface.py'
       - 'docs/scripts/update_models_modelscope.py'
 
@@ -24,31 +24,29 @@ jobs:
   update-aihuanxin:
     runs-on: ubuntu-latest
     name: Update aihuanxin model list
-    
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-    
+
     - name: Install dependencies
       run: pip install requests
-    
+
     - name: Run aihuanxin update
       id: aihuanxin
       run: |
         cd docs/scripts
-        python update_models_aihuanxin.py
-        if [ $? -eq 0 ]; then
-          echo "has_changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "has_changes=false" >> $GITHUB_OUTPUT
-        fi
-    
+        python update_models_aihuanxin.py && echo "has_changes=true" >> $GITHUB_OUTPUT || echo "has_changes=false" >> $GITHUB_OUTPUT
+
     - name: Create PR for aihuanxin
       if: steps.aihuanxin.outputs.has_changes == 'true'
       uses: peter-evans/create-pull-request@v6
@@ -63,7 +61,7 @@ jobs:
 
           ### Update Statistics
           - **Total models**: Updated based on latest data from aihuanxin
-          
+
           ### Detailed Changes
           Please review the complete model list in the updated file:
           - [`docs/flagrelease_en/model-list/model-list-aihuanxin.md`](docs/flagrelease_en/model-list/model-list-aihuanxin.md)
@@ -81,35 +79,33 @@ jobs:
         delete-branch: true
         add-paths: |
           docs/flagrelease_en/model-list/model-list-aihuanxin.md
-  
+
   update-modelscope:
     runs-on: ubuntu-latest
     name: Update ModelScope model list
-    
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-    
+
     - name: Install dependencies
       run: pip install requests
-    
+
     - name: Run ModelScope update
       id: modelscope
       run: |
         cd docs/scripts
-        python update_models_modelscope.py
-        if [ $? -eq 0 ]; then
-          echo "has_changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "has_changes=false" >> $GITHUB_OUTPUT
-        fi
-    
+        python update_models_modelscope.py && echo "has_changes=true" >> $GITHUB_OUTPUT || echo "has_changes=false" >> $GITHUB_OUTPUT
+
     - name: Create PR for ModelScope
       if: steps.modelscope.outputs.has_changes == 'true'
       uses: peter-evans/create-pull-request@v6
@@ -124,7 +120,7 @@ jobs:
 
           ### Update Statistics
           - **Total models**: Updated based on latest data from ModelScope
-          
+
           ### Detailed Changes
           Please review the complete model list in the updated file:
           - [`docs/flagrelease_en/model-list/model-list-modelscope.md`](docs/flagrelease_en/model-list/model-list-modelscope.md)
@@ -142,35 +138,33 @@ jobs:
         delete-branch: true
         add-paths: |
           docs/flagrelease_en/model-list/model-list-modelscope.md
-  
+
   update-huggingface:
     runs-on: ubuntu-latest
     name: Update HuggingFace model list
-    
+    permissions:
+      contents: write
+      pull-requests: write
+
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
-    
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.9'
-    
+
     - name: Install dependencies
       run: pip install requests
-    
+
     - name: Run HuggingFace update
       id: huggingface
       run: |
         cd docs/scripts
-        python update_models_huggingface.py
-        if [ $? -eq 0 ]; then
-          echo "has_changes=true" >> $GITHUB_OUTPUT
-        else
-          echo "has_changes=false" >> $GITHUB_OUTPUT
-        fi
-    
+        python update_models_huggingface.py && echo "has_changes=true" >> $GITHUB_OUTPUT || echo "has_changes=false" >> $GITHUB_OUTPUT
+
     - name: Create PR for HuggingFace
       if: steps.huggingface.outputs.has_changes == 'true'
       uses: peter-evans/create-pull-request@v6
@@ -185,7 +179,7 @@ jobs:
 
           ### Update Statistics
           - **Total models**: Updated based on latest data from HuggingFace
-          
+
           ### Detailed Changes
           Please review the complete model list in the updated file:
           - [`docs/flagrelease_en/model-list/model-list-huggingface.md`](docs/flagrelease_en/model-list/model-list-huggingface.md)
