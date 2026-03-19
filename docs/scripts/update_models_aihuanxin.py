@@ -35,7 +35,16 @@ def get_flagos_models() -> List[Dict]:
     all_flagos_models = []
     page = 1
     page_size = 100
-    max_pages = 10  # Limit to 10 pages to avoid excessive requests
+    max_pages = None
+    while True:
+        ...
+        # After the first request, get total_models and calculate the total number of pages
+        if max_pages is None:
+            total_models = data.get("data", {}).get("total", 0)
+            max_pages = (total_models + page_size - 1) // page_size
+        ...
+        if page >= max_pages:
+            break
     
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Retrieving 众智FlagOS models...")
     
