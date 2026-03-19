@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
 
 def get_flagos_models() -> List[Dict]:
     """
-    Get all models of the 众智 FlagOS organization
+    Get all models of the 众智FlagOS organization
     """
     url = "https://aihuanxin.cn/qdlake/web-pub/aiconflux/v1/model/list"
     
@@ -37,7 +37,7 @@ def get_flagos_models() -> List[Dict]:
     page_size = 100
     max_pages = None  # Will be set after first request
     
-    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Retrieving 众智 FlagOS models...")
+    print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Retrieving 众智FlagOS models...")
     
     while True:
         payload = {"pageNum": page, "pageSize": page_size}
@@ -67,15 +67,15 @@ def get_flagos_models() -> List[Dict]:
                 print("    No more models found")
                 break
             
-            # Filter for 众智 FlagOS models
+            # Filter for 众智FlagOS models
             page_flagos_count = 0
             for model in models:
                 name = model.get("name", "")
-                if "众智 FlagOS/" in name:
+                if "众智FlagOS/" in name:
                     all_flagos_models.append(model)
                     page_flagos_count += 1
             
-            print(f"    Found {page_flagos_count} 众智 FlagOS models on this page")
+            print(f"    Found {page_flagos_count} 众智FlagOS models on this page")
             
             # Check if we should continue to next page
             if len(models) < page_size or page * page_size >= total_models:
@@ -105,7 +105,7 @@ def get_flagos_models() -> List[Dict]:
             seen_ids.add(model_id)
             unique_models.append(model)
     
-    print(f"  Total unique 众智 FlagOS models found: {len(unique_models)}")
+    print(f"  Total unique 众智FlagOS models found: {len(unique_models)}")
     return unique_models
 
 def generate_model_url(model_id: str) -> str:
@@ -171,9 +171,9 @@ def create_markdown_table(models: List[Dict]) -> Tuple[str, Set[str]]:
         full_name = model.get("name", "")
         model_id = model.get("id", "")
         
-        # Remove "众智 FlagOS/" prefix
-        if full_name.startswith("众智 FlagOS/"):
-            short_name = full_name[len("众智 FlagOS/"):]
+        # Remove "众智FlagOS/" prefix
+        if full_name.startswith("众智FlagOS/"):
+            short_name = full_name[len("众智FlagOS/"):]
         else:
             short_name = full_name
         
