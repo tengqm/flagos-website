@@ -224,7 +224,7 @@ def main():
     # Configuration - adjust according to your directory structure
     script_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.join(script_dir, '../..')
-    output_filename = os.path.join(repo_root, "docs/flagrelease_en/modle_list/model-list-aihuanxin.md")
+    output_filename = os.path.join(repo_root, "docs/flagrelease_en/model_list/model-list-aihuanxin.md")
     
     # Ensure output directory exists
     output_dir = os.path.dirname(output_filename)

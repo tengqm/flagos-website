@@ -66,7 +66,7 @@ jobs:
           
           ### Detailed Changes
           Please review the complete model list in the updated file:
-          - [`docs/flagrelease_en/modle-list/model-list-aihuanxin.md`](docs/flagrelease_en/modle-list/model-list-aihuanxin.md)
+          - [`docs/flagrelease_en/model-list/model-list-aihuanxin.md`](docs/flagrelease_en/model-list/model-list-aihuanxin.md)
 
           ### Review Checklist
           - [ ] Verify all URLs are accessible
@@ -80,7 +80,7 @@ jobs:
         base: main
         delete-branch: true
         add-paths: |
-          docs/flagrelease_en/modle-list/model-list-aihuanxin.md
+          docs/flagrelease_en/model-list/model-list-aihuanxin.md
   
   update-modelscope:
     runs-on: ubuntu-latest
@@ -127,7 +127,7 @@ jobs:
           
           ### Detailed Changes
           Please review the complete model list in the updated file:
-          - [`docs/flagrelease_en/modle-list/model-list-modelscope.md`](docs/flagrelease_en/modle-list/model-list-modelscope.md)
+          - [`docs/flagrelease_en/model-list/model-list-modelscope.md`](docs/flagrelease_en/model-list/model-list-modelscope.md)
 
           ### Review Checklist
           - [ ] Verify all URLs are accessible
@@ -141,7 +141,7 @@ jobs:
         base: main
         delete-branch: true
         add-paths: |
-          docs/flagrelease_en/modle-list/model-list-modelscope.md
+          docs/flagrelease_en/model-list/model-list-modelscope.md
   
   update-huggingface:
     runs-on: ubuntu-latest
@@ -188,7 +188,7 @@ jobs:
           
           ### Detailed Changes
           Please review the complete model list in the updated file:
-          - [`docs/flagrelease_en/modle-list/model-list-huggingface.md`](docs/flagrelease_en/modle-list/model-list-huggingface.md)
+          - [`docs/flagrelease_en/model-list/model-list-huggingface.md`](docs/flagrelease_en/model-list/model-list-huggingface.md)
 
           ### Review Checklist
           - [ ] Verify all URLs are accessible
@@ -202,4 +202,4 @@ jobs:
         base: main
         delete-branch: true
         add-paths: |
-          docs/flagrelease_en/modle-list/model-list-huggingface.md
+          docs/flagrelease_en/model-list/model-list-huggingface.md
