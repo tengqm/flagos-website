@@ -14,11 +14,43 @@ You can use the following operations to manage the memory.
 x = tle.load(..., is_async=True)
 ```
 
+## Tensor slicing
+
+Splits the input tensor into a grid of sub-tiles based on the specified sub-tile shape, and extracts the sub-tile at the given coordinates.
+GPU: Supports extraction into registers and shared memory.
+
+### tle.extract_tile
+
+Splits the input tensor into a grid of sub-tiles based on the specified sub-tile shape, and extracts the sub-tile at the given coordinates.
+
+Supports extraction into registers and shared memory.
+
+```{code-block} python
+# x is [4, 4]
+# z is [2, 2]
+# Split x into a sub-tile grid with shape=[2, 2], and extract the sub-tile at [0, 0]
+z = x.extract_tile(index=[0, 0], shape=[2, 2])
+```
+
+### tle.insert_tile
+
+Splits the input tensor into a grid of sub-tiles based on the sub-tile shape, and updates the sub-tile at the specified coordinates with a new tile.
+
+Supports updates from registers and shared memory.
+
+```{code-block} python
+# x is [4, 4], y is [2, 2], z is [4, 4]
+# Split x into sub-tiles of shape=[2, 2], update the [0, 0] sub-tile with y, and return the full [4, 4] tensor
+z = x.insert_tile(y, index=[0, 0])
+```
+
 ## Distribution
 
-The Triton distributed API consists of four core parts: device grid definition, sharding specification description, re-sharding operation (collective communication), and remote access (point-to-point communication).
+The Triton distributed API consists of four core parts: device mesh definition, sharding specification description, synchronization, and remote access (point-to-point communication).
 
-### Device grid
+### device mesh
+
+#### tle.device_mesh
 
 `tle.device_mesh` defines the topological structure of physical devices. It is the fundamental context for all distributed operations.
 
@@ -81,12 +113,12 @@ topology = {
 
 # mesh.shape -> (2, 2, 4, 2, 2, 4)
 # Total size = 256
-mesh = tle.device_mesh(topology=topo)
+mesh = tle.device_mesh(topology=topology)
 ```
 
 ### Sharding specification
 
-`tl.sharding` is used to declare the current distribution state of a tensor across a Device Mesh. The splits list describes how each dimension of the tensor is partitioned over the mesh, while the partials list indicates whether the tensor is in a partial-sum state. Any mesh axes not explicitly mentioned are treated as broadcast (replicated).
+`tle.sharding` is used to declare the current distribution state of a tensor across a Device Mesh. The splits list describes how each dimension of the tensor is partitioned over the mesh, while the partials list indicates whether the tensor is in a partial-sum state. Any mesh axes not explicitly mentioned are treated as broadcast (replicated).
 
 - tle.S(axis): Split — indicates that the tensor dimension is partitioned along the specified mesh axis.
 - tle.B: Broadcast/Replicate — indicates that the tensor dimension is fully replicated (i.e., not split) along any mesh axes not explicitly referenced.
@@ -130,18 +162,52 @@ def distributed_barrier(mesh):
     pass
 ```
 
+#### tle.distributed_barrier
+
+`tle.distributed_barrier` synchronize only the set of devices corresponding to the given mesh or sub-mesh.
+
+Read from neighboring shards (ring-style exchange).
+
+```{code-block} python
+node_rank = tle.shard_id(mesh, "node")
+device_rank = tle.shard_id(mesh, "device")
+next_device = (device_rank + 1) % mesh.shape[1]
+remote_x = tle.remote(x, shard_id=(node_rank, next_device), scope=mesh)
+tle.distributed_barrier(mesh)
+neighbor_vals = tl.load(remote_x)
+```
+
 ### Remote access
 
-`tl.remote` is used to obtain a handle to a tensor located on another device. This corresponds to point-to-point communication or direct memory access (e.g., RDMA/NVLink Load). It enables kernels to explicitly access data from a specific shard.
+`tle.remote` is used to obtain a handle to a tensor located on another device. This corresponds to point-to-point communication or direct memory access (e.g., RDMA/NVLink Load). It enables kernels to explicitly access data from a specific shard.
 
 ```{code-block} python
 def remote(tensor, shard_id, scope):
     """
     Obtains a handle to a Remote Tensor residing on a specific device shard.
 
-    :param tensor: A logically distributed tensor (already annotated with tl.sharding).
+    :param tensor: A logically distributed tensor (already annotated with tle.sharding).
     :param shard_id: tuple. The coordinates of the target device within the Device Mesh.
                      For example, if mesh=(2,4) and shard_id=(0, 3), this refers to GPU #3 on node #0.
     :return: RemoteTensor. Supports operations such as load, store, etc.
     """
 ```
+
+`tle.remote`: Explicitly read from or write to remote shards.
+
+```{code-block} python
+node_rank = tle.shard_id(mesh, "node")
+device_rank = tle.shard_id(mesh, "device")
+next_device = (device_rank + 1) % mesh.shape[1]
+remote_x = tle.remote(x, shard_id=(node_rank, next_device), scope=mesh)
+tle.distributed_barrier(mesh)
+neighbor_vals = tl.load(remote_x)
+```
+
+## Primitives interactive with local_ptr
+
+The following APIs are used together with `tle.gpu.local_ptr`. For more information, see [Use TLE-Struct](use-tle-struct.md).
+
+- `tl.load`（for local_ptr）
+- `tl.store`（for local_ptr）
+- `tl.atomic_add`/`and`/`cas`/`max`/`min`/`or`/`xchg`/`xor`（for local_ptr）
