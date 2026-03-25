@@ -38,6 +38,7 @@ Each backend is based on different versions of Triton, and therefore resides in 
 |[triton_v3.3.x](https://github.com/flagos-ai/flagtree/tree/triton_v3.3.x)|NVIDIA, AMD, x86_64 cpu, ARM China, Tsingmicro, Enflame|[nvidia](https://github.com/FlagTree/flagtree/tree/triton_v3.3.x/third_party/nvidia/), [amd](https://github.com/FlagTree/flagtree/tree/triton_v3.3.x/third_party/amd/), [triton-shared](https://github.com/microsoft/triton-shared), [aipu](https://github.com/FlagTree/flagtree/tree/triton_v3.3.x/third_party/aipu/), [tsingmicro](https://github.com/FlagTree/flagtree/tree/triton_v3.3.x/third_party/tsingmicro/), [enflame](https://github.com/FlagTree/flagtree/tree/triton_v3.3.x/third_party/enflame/)|3.3|
 |[triton_v3.4.x](https://github.com/flagos-ai/flagtree/tree/triton_v3.4.x)|NVIDIA, AMD|[nvidia](https://github.com/FlagTree/flagtree/tree/triton_v3.4.x/third_party/nvidia/), [amd](https://github.com/FlagTree/flagtree/tree/triton_v3.4.x/third_party/amd/)|3.4|
 |[triton_v3.5.x](https://github.com/flagos-ai/flagtree/tree/triton_v3.5.x)|NVIDIA, AMD|[nvidia](https://github.com/FlagTree/flagtree/tree/triton_v3.5.x/third_party/nvidia/), [amd](https://github.com/FlagTree/flagtree/tree/triton_v3.5.x/third_party/amd/)|3.5|
+|[triton_v3.6.x](https://github.com/flagos-ai/flagtree/tree/triton_v3.5.x)|NVIDIA, AMD|[nvidia](https://github.com/FlagTree/flagtree/tree/triton_v3.6.x/third_party/nvidia/), [amd](https://github.com/FlagTree/flagtree/tree/triton_v3.6.x/third_party/amd/)|3.6|
 
 ## Dependencies
 
