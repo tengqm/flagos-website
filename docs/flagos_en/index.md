@@ -45,7 +45,7 @@ sd_hide_title: true
       A comprehensive toolkit designed to support the entire lifecycle of large models.
     </div>
     <div class="card-footer">
-      <a href="https://docs.flagos.io/projects/FFlagScale/en/latest/" class="card-link">MORE</a>
+      <a href="https://docs.flagos.io/projects/FlagScale/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
@@ -57,6 +57,61 @@ sd_hide_title: true
     </div>
     <div class="card-footer">
       <a href="https://docs.flagos.io/projects/FlagCX/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
+
+  <!-- Megatron-LM-FL -->
+  <div class="flagos-card">
+    <h3 class="card-title">Megatron-LM-FL</h3>
+    <div class="card-description">
+      A fork of Megatron-LM that introduces a plugin-based architecture for supporting diverse AI chips, built on top of FlagOS, a unified open-source AI system software stack.
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/Megatron-LM-FL/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
+  
+  <!-- vllm-plugin-FL -->
+  <div class="flagos-card">
+    <h3 class="card-title">vllm-plugin-FL</h3>
+    <div class="card-description">
+      A plugin for the vLLM inference/serving framework, built on FlagOS's unified multi-chip backend — including the unified operator library FlagGems and the unified communication library FlagCX.
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/vllm-plugin-FL/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
+
+  <!-- TransformerEngine-FL -->
+  <div class="flagos-card">
+    <h3 class="card-title">TransformerEngine-FL</h3>
+    <div class="card-description">
+      A fork of TransformerEngine that introduces a plugin-based architecture for supporting diverse AI chips, built on top of FlagOS, a unified open-source AI system software stack..
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/TransformerEngine-FL/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
+
+  <!-- verl-FL -->
+  <div class="flagos-card">
+    <h3 class="card-title">verl-FL</h3>
+    <div class="card-description">
+      A fork of [veRL](https://github.com/verl-project/verl) (Volcano Engine Reinforcement Learning for LLMs) that extends the upstream library with multi-chip/multi-hardware support via the FlagOS ecosystem.
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/verl-FL/en/latest/" class="card-link">MORE</a>
+    </div>
+  </div>
+
+  <!-- FlagOS-Robo-->
+  <div class="flagos-card">
+    <h3 class="card-title">FlagOS-Robo</h3>
+    <div class="card-description">
+      An integrated training and inference framework for AI models used in robots, so-called Embodied Intelligence. It is built upon the unified and open-source AI system software stack, FlagOS, which supports various AI chips.
+    </div>
+    <div class="card-footer">
+      <a href="https://docs.flagos.io/projects/FlagOS-Robo/en/latest/" class="card-link">MORE</a>
     </div>
   </div>
 
