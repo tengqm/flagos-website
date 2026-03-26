@@ -15,6 +15,7 @@
 | ERNIE-4.5-300B-A47B-PT-FlagOS | <https://modelscope.cn/models/FlagRelease/ERNIE-4.5-300B-A47B-PT-FlagOS> |
 | GLM-4.5-FlagOS | <https://modelscope.cn/models/FlagRelease/GLM-4.5-FlagOS> |
 | GLM-5-ascend-FlagOS | <https://modelscope.cn/models/FlagRelease/GLM-5-ascend-FlagOS> |
+| GLM-5-FP8-FlagOS | <https://modelscope.cn/models/FlagRelease/GLM-5-FP8-FlagOS> |
 | gpt-oss-120b-FlagOS | <https://modelscope.cn/models/FlagRelease/gpt-oss-120b-FlagOS> |
 | grok-2-FlagOS | <https://modelscope.cn/models/FlagRelease/grok-2-FlagOS> |
 | Hunyuan-A13B-Instruct-FlagOS | <https://modelscope.cn/models/FlagRelease/Hunyuan-A13B-Instruct-FlagOS> |
@@ -63,6 +64,7 @@
 | Qwen3-Omni-30B-A3B-Instruct-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3-Omni-30B-A3B-Instruct-FlagOS> |
 | Qwen3-VL-235B-A22B-Instruct-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3-VL-235B-A22B-Instruct-FlagOS> |
 | Qwen3.5-35B-A3B-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3.5-35B-A3B-FlagOS> |
+| Qwen3.5-35B-A3B-hygon-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3.5-35B-A3B-hygon-FlagOS> |
 | Qwen3.5-35B-A3B-iluvatar-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3.5-35B-A3B-iluvatar-FlagOS> |
 | Qwen3.5-397B-A17B-metax-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3.5-397B-A17B-metax-FlagOS> |
 | Qwen3.5-397B-A17B-nvidia-FlagOS | <https://modelscope.cn/models/FlagRelease/Qwen3.5-397B-A17B-nvidia-FlagOS> |
