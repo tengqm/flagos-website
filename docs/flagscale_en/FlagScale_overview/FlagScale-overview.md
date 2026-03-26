@@ -16,6 +16,12 @@ FlagOS plugin projects are built on top of widely used upstream open-source fram
 
 The following table lists the mapping between FlagOS plugins and their corresponding upstream projects.
 
+| Task                    | FlagOS Plugin Projects                     | Upstream Projects             |
+|-------------------------|--------------------------------------------|-------------------------------|
+| Training                | - [Megatron-LM-FL](https://github.com/flagos-ai/Megatron-LM-FL)<br>- [TransformerEngine-FL](https://github.com/flagos-ai/TransformerEngine-FL) | - [Megatron-LM](https://github.com/NVIDIA/Megatron-LM)<br>- [TransformerEngine](https://github.com/NVIDIA/TransformerEngine) |
+| Reinforcement Learning  | - [VeRL-FL](https://github.com/flagos-ai/verl-FL)                                  | - [verl](https://github.com/verl-project/verl)                        |
+| Serve / Inference       | - [vllm-plugin-FL](https://github.com/flagos-ai/vllm-plugin-FL)                           | - [vllm](https://github.com/vllm-project/vllm)                        |
+
 **Note**: Starting from **v1.0.0-alpha.0**, hardware-specific support has been decoupled from the core FlagScale codebase and moved into the plugin repositories above. If you are using or upgrading from an earlier version, please use the `main-legacy` branch, which will continue to receive critical bug fixes and minor updates for a period of time.
 
 ```{toctree}
