@@ -49,5 +49,8 @@ getting_started/getting-started.md
 :maxdepth: 5
 :hidden:
 
-modle_list/model-list.md
+modle_list/model-list-aihuanxin.md
+modle_list/model-list-huggingface.md
+modle_list/model-list-modelscopen.md
+modle-list/model-list-cloud.md
 ```
