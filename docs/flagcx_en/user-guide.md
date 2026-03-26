@@ -103,18 +103,18 @@ Refer to [](getting-started.md) for FlagCX compilation and installation.
 
    # Check if the debug flag is set
    if [ "$1" == "debug" ]; then
-       export NCCL_DEBUG=INFO
-       export NCCL_DEBUG_SUBSYS=all
-       echo "NCCL debug information enabled."
+       export FLAGCX_DEBUG=INFO
+       export FLAGCX_DEBUG_SUBSYS=ALL
+       echo "FlagCX debug information enabled."
    else
-       unset NCCL_DEBUG
-       unset NCCL_DEBUG_SUBSYS
-       echo "NCCL debug information disabled."
+       unset FLAGCX_DEBUG
+       unset FLAGCX_DEBUG_SUBSYS
+       echo "FlagCX debug information disabled."
    fi
    
    export FLAGCX_IB_HCA=mlx5
    export FLAGCX_ENABLE_TOPO_DETECT=TRUE
-   export FLAGCX_DEBUG=TRUE
+   export FLAGCX_DEBUG=INFO
    export FLAGCX_DEBUG_SUBSYS=ALL
    export CUDA_VISIBLE_DEVICES=0,1
    # Need to preload customized gloo library specified for FlagCX linkage
@@ -141,7 +141,7 @@ Refer to [](getting-started.md) for FlagCX compilation and installation.
    - `master_port`: Port used by the master node to establish the process group.
      All nodes must use the same port, and the port has to be available on all nodes.
    - `example.py`: Torch API test script.
-   - Refer to [](enviroment-variables.md) for the usage of the various `FLAGCX_XXX` environment variables.
+   - Refer to [](environment-variables.md) for the usage of the various `FLAGCX_XXX` environment variables.
 
 3. Sample screenshot from a correct performance test
 
@@ -310,6 +310,73 @@ The following steps shows an example in which we run the LLaMA3-8B model on Nvid
 
 ## Heterogeneous tests using FlagCX
 
+### UniRunner mode
+
+FlagCX provides a unified heterogeneous communication mode called **uniRunner**, which implements 11 chip-decoupled collective communication algorithms. To enable uniRunner mode, set the following environment variable before launching your application:
+
+```shell
+export FLAGCX_USE_HETERO_COMM=1
+```
+
+UniRunner supports all standard collective operations (AllReduce, AllGather, ReduceScatter, Broadcast, Reduce, Gather, Scatter, AlltoAll, AlltoAllv, Send, Recv) across heterogeneous hardware.
+
+For kernel-based communication with Device API (available on NVIDIA and Hygon), you also need:
+
+```shell
+export FLAGCX_MEM_ENABLE=1
+```
+
+Refer to [](environment-variables.md) for the full list of UniRunner-specific configuration variables (prefixed with `FLAGCX_UNIRUNNER_*`).
+
+### One-sided RDMA operations
+
+Starting from v0.11, FlagCX supports one-sided RDMA operations for heterogeneous communicators backed by RDMA-capable network adaptors. These operations require prior buffer registration via window registration.
+
+**Registration:**
+
+```c
+// Allocate memory
+flagcxMemAlloc(&ptr, size);
+
+// Register as a window for one-sided operations
+flagcxCommWindowRegister(comm, ptr, size, &win, FLAGCX_WIN_DEFAULT);
+```
+
+**One-sided API:**
+
+| API | Description |
+|-----|-------------|
+| `flagcxGet` | RDMA READ: pull data from a remote peer's buffer into local buffer |
+| `flagcxPutSignal` | RDMA WRITE + ATOMIC: write data to remote buffer, then atomically increment a remote signal |
+| `flagcxSignal` | Signal only: atomically increment a remote signal (equivalent to `flagcxPutSignal` with size=0) |
+| `flagcxWaitSignal` | Wait until a local signal reaches the expected value (device-side `streamWaitValue64`) |
+
+**Cleanup:**
+
+```c
+flagcxCommWindowDeregister(comm, win);
+flagcxMemFree(ptr);
+```
+
+See `flagcx/include/flagcx.h` for the full API signatures and parameter documentation.
+
+### NCCL wrapper plugin
+
+For NVIDIA platforms, FlagCX provides an NCCL wrapper plugin that builds a drop-in `libnccl.so`. This allows any NCCL-based application (PyTorch, DeepSpeed, Megatron-LM) to transparently use FlagCX without code changes:
+
+```shell
+# Build the wrapper
+cd FlagCX/plugin/nccl
+make NCCL_HOME=/path/to/nccl CUDA_HOME=/path/to/cuda
+
+# Use with any NCCL application
+LD_PRELOAD=./build/lib/libnccl.so python your_training_script.py
+```
+
+The wrapper intercepts NCCL API calls and routes them through FlagCX. A thread-local recursive guard prevents infinite recursion when FlagCX's internal NCCL adaptor calls back into NCCL.
+
+Prerequisites: FlagCX built and installed, CUDA toolkit, real NCCL >= 2.21.0 (versions 2.21 through 2.27 supported). See `plugin/nccl/README.md` for full details.
+
 ### Communication API test
 
 1. Build and Installation
@@ -375,7 +442,7 @@ The following steps shows an example in which we run the LLaMA3-8B model on Nvid
        /root/FlagCX/test/perf/test_allreduce -b 128K -e 4G -f 2 -w 5 -n 100 -p 1`
      ```
 
-     - Refer to [](enviroment-variables.md) for the meaning and usage of `FLAGCX_XXX` environment variables.
+     - Refer to [](environment-variables.md) for the meaning and usage of `FLAGCX_XXX` environment variables.
 
    - **Note:** When using two GPUs per node in the heterogeneous Communication API test, some warnings may indicate that each node only has 1 GPU active. In this case, FlagCX will skip GPU-to-GPU AllReduce and fall back to host-based communication.
 

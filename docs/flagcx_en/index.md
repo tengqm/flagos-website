@@ -78,5 +78,5 @@ paddle/README.md
 :maxdepth: 5
 :hidden:
 
-enviroment-variables.md
+environment-variables.md
 ```

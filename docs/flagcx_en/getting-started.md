@@ -40,19 +40,39 @@ sudo docker run -itd \
 
 ## Build and installation
 
-1. Obtain FlagCX Source Code and Build Installation
-
-   Review and Choose Build Options Suitable for the Current Platform
+1. Obtain FlagCX Source Code
 
    ```
    git clone https://github.com/flagos-ai/FlagCX.git
-   cd FlagCX 
+   cd FlagCX
    git submodule update --init --recursive
-   cat Makefile
+   ```
+
+2. Installation
+
+   **Option A — Pythonic Installation (pip install):**
+
+   ```shell
+   pip install . -v --no-build-isolation
+   ```
+
+   This auto-detects the hardware backend. You can also explicitly specify the backend:
+
+   ```shell
+   USE_NVIDIA=1 pip install . -v --no-build-isolation
+   ```
+
+   **Option B — C++ library (make):**
+
+   Review and choose build options suitable for the current platform:
+
+   ```
    make USE_NVIDIA=1 -j$(nproc) # NVIDIA GPU Platform
    make USE_CAMBRICON=1 -j$(nproc)  # Cambricon Platform
    make USE_KUNLUNXIN=1 -j$(nproc) # KLX Platform
    ```
+
+   See [](build.md) for the full list of supported backend flags.
    
 2. Successful Build Result
 
@@ -110,6 +130,11 @@ sudo docker run -itd \
 
    ![homogeneous_communication_api_test_successful_build_result.png](images/homogeneous_communication_api_test_successful_build_result.png)
 
+### Device API test
+
+Device API tests verify intra-node and inter-node communication via the Device API.
+See [](testing.md) for the full list of test binaries, build instructions, and run examples.
+
 ### Torch API test
 
 1. Environment Setup
@@ -143,6 +168,18 @@ sudo docker run -itd \
    ```
 
    **Note**: `[xxx]` should be selected according to the current platform, e.g., `nvidia`, `klx`, etc.
+
+   **Alternative — NCCL Wrapper Plugin:**
+
+   For NVIDIA platforms, you can also use the NCCL wrapper plugin, which provides a drop-in `libnccl.so` that routes NCCL API calls through FlagCX. This allows any NCCL-based application (PyTorch, DeepSpeed, etc.) to transparently use FlagCX without code changes:
+
+   ```shell
+   cd FlagCX/plugin/nccl
+   make NCCL_HOME=/path/to/nccl CUDA_HOME=/path/to/cuda
+   LD_PRELOAD=./build/lib/libnccl.so your_application
+   ```
+
+   See `plugin/nccl/README.md` in the FlagCX repository for full details.
 
 3. Successful Build Result
 
