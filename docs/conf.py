@@ -10,15 +10,28 @@ To build each project, the ``PROJECT`` environment variable is used.
    $ PROJECT=flagcx_en make html  # build the flagcx English project
    $ PROJECT=flaggems_en make html  # build the flaggems English project
    $ PROJECT=flagtree_en make html  # build the flagtree English project
+   $ PROJECT=flagscale_en make html  # build the flagscale English project
    $ PROJECT=flagrelease_en make html  # build the flagrelease English project
    $ PROJECT=flagperf_en make html  # build the flagperf English project
+   $ PROJECT=megatron_lm_fl_en make html  # build the megatron_lm_fl English project   
+   $ PROJECT=vllm_plugin_fl_en make html  # build the vllm_plugin_fl English project
+   $ PROJECT=transformer_engine_fl_en make html  # build the transformer_engine_fl English project
+   $ PROJECT=verl_fl_en make html  # build the verl_fl English project
+   $ PROJECT=flagos_robo_en make html  # build the flagos_robo English project
+   $ PROJECT=onlinelaboratory_en make html  # build the onlinelaboratory English project
+   
    $ PROJECT=flagos_zh make html  # build the Chinese project
    $ PROJECT=flagcx_zh make html  # build the flagcx Chinese project
    $ PROJECT=flaggems_zh make html  # build the flaggems Chinese project
    $ PROJECT=flagtree_zh make html  # build the flagtree Chinese project
+   $ PROJECT=flagscale_zh make html  # build the flagscale Chinese project
    $ PROJECT=flagrelease_zh make html  # build the flagrelease Chinese project
    $ PROJECT=flagperf_zh make html  # build the flagperf Chinese project
-   $ PROJECT=onlinelaboratory_en make html  # build the onlinelaboratory English project
+   $ PROJECT=megatron_lm_fl_zh make html  # build the megatron_lm_fl Chinese project   
+   $ PROJECT=vllm_plugin_fl_zh make html  # build the vllm_plugin_fl Chinese project
+   $ PROJECT=transformer_engine_fl_zh make html  # build the transformer_engine_fl Chinese project
+   $ PROJECT=verl_fl_zh make html  # build the transformer_engine_fl Chinese project
+   $ PROJECT=flagos_robo_zh make html  # build the flagos_robo Chinese project
    $ PROJECT=onlinelaboratory_zh make html  # build the onlinelaboratory Chinese project
 
 For more information read https://sphinx-multiproject.readthedocs.io/.
@@ -124,6 +137,48 @@ multiproject_projects = {
             "html_title": "FlagPerf Documentation",
         },
     },
+    "megatron_lm_fl_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "Megatron-LM-FL Documentation",
+            "html_title": "Megatron-LM-FL Documentation",
+        },
+    },
+    "vllm_plugin_fl_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "VLLM-Plugin-FL Documentation",
+            "html_title": "VLLM-Plugin-FL Documentation",
+        },
+    },
+    "transformer_engine_fl_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "Transformer-Engine-FL Documentation",
+            "html_title": "Transformer-Engine-FL Documentation",
+        },
+    },
+    "verl_fl_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "Verl-FL Documentation",
+            "html_title": "Verl-FL Documentation",
+        },
+    },
+    "flagos_robo_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "FlagOS-Robo Documentation", 
+            "html_title": "FlagOS-Robo Documentation",
+        },
+    },
+    "onlinelaboratory_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "Online Laboratory Documentation",
+            "html_title": "Online Laboratory Documentation",
+        },
+    },
     "flagos_zh": {
         "use_config_file": False,
         "config": {
@@ -166,11 +221,39 @@ multiproject_projects = {
             "html_title": "FlagPerf 文档中心",
         },
     },
-        "onlinelaboratory_en": {
+    "megatron_lm_fl_zh": {
+        "use_config_file": False, 
+        "config": {
+            "project": "Megatron-LM-FL 文档中心",
+            "html_title": "Megatron-LM-FL 文档中心",
+        },
+    },
+    "vllm_plugin_fl_zh": {
         "use_config_file": False,
         "config": {
-            "project": "Online Laboratory Documentation",
-            "html_title": "Online Laboratory Documentation",
+            "project": "VLLM-Plugin-FL 文档中心",
+            "html_title": "VLLM-Plugin-FL 文档中心", 
+        },
+    },
+    "transformer_engine_fl_zh": {
+        "use_config_file": False,
+        "config": {
+            "project": "Transformer-Engine-FL 文档中心",
+            "html_title": "Transformer-Engine-FL 文档中心", 
+        },
+    },
+    "verl_fl_zh": {
+        "use_config_file": False,
+        "config": {
+            "project": "Verl-FL 文档中心",
+            "html_title": "Verl-FL 文档中心", 
+        },
+    },
+    "flagos_robo_zh": {
+        "use_config_file": False,
+        "config": {
+            "project": "FlagOS-Robo 文档中心",
+            "html_title": "FlagOS-Robo 文档中心",
         },
     },
     "onlinelaboratory_zh": {

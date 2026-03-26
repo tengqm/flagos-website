@@ -32,16 +32,17 @@ Environment Setup
 |Docker Version|24.0.0 |
 |Operating System|Ubuntu 22.04.4|
 
+### Download FlagOS Image
+```bash
+docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3.5-397b-a17b-tree_0.4.1_3.5-gems_4.2.1rc0-scale_none-cx_none-python_3.12.3-torch_2.10.0-pcp_cuda13.1-gpu_nvidia003-arc_amd64-driver_570.158.01:202603191445
+```
+
 ### Download Open-source Model Weights
 ```bash
 pip install modelscope
 modelscope download --model FlagRelease/Qwen3.5-397B-A17B-nvidia-FlagOS --local_dir /data/Qwen3.5-397B-A17B
 ```
 
-### Download FlagOS Image
-```bash
-docker pull harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3.5-397b-a17b-tree_none-gems_4.2.1rc0-scale_none-cx_none-python_3.12.3-torch_2.10.0-pcp_cuda13.1-gpu_nvidia003-arc_amd64-driver_570.158.01:2602171855
-```
 ### Start the inference service
 ```bash
 #Container Startup
@@ -49,7 +50,7 @@ docker run --init --detach --net=host --user 0 --ipc=host \
            -v /data:/data --security-opt=seccomp=unconfined \
            --privileged --ulimit=stack=67108864 --ulimit=memlock=-1 \
            --shm-size=512G --gpus all  \
-           --name flagos harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3.5-397b-a17b-tree_none-gems_4.2.1rc0-scale_none-cx_none-python_3.12.3-torch_2.10.0-pcp_cuda13.1-gpu_nvidia003-arc_amd64-driver_570.158.01:2602171855 sleep infinity
+           --name flagos harbor.baai.ac.cn/flagrelease-public/flagrelease-nvidia-release-model_qwen3.5-397b-a17b-tree_0.4.1_3.5-gems_4.2.1rc0-scale_none-cx_none-python_3.12.3-torch_2.10.0-pcp_cuda13.1-gpu_nvidia003-arc_amd64-driver_570.158.01:202603191445 sleep infinity
 docker exec -it flagos bash
 ```
 ### Serve
@@ -58,7 +59,6 @@ vllm serve /data/Qwen3.5-397B-A17B --port 9010 --served-model-name qwen35-flagos
 ```
 
 ## Service Invocation
-
 
 ### API-based Invocation Script
 ```bash
@@ -133,5 +133,4 @@ We warmly welcome global developers to join us:
 4. Expand hardware adaptation support
 
 # License
- 	 
-本模型的权重来源于Qwen/Qwen3.5-397B-A17B，以apache2.0协议https://www.apache.org/licenses/LICENSE-2.0.txt开源。
+The model weights are sourced from Qwen/Qwen3.5-35B-A3B and open-sourced under the Apache 2.0 license

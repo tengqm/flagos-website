@@ -35,11 +35,11 @@ def get_flagos_models() -> List[Dict]:
     all_flagos_models = []
     page = 1
     page_size = 100
-    max_pages = 10  # Limit to 10 pages to avoid excessive requests
+    max_pages = None  # Will be set after first request
     
     print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Retrieving 众智FlagOS models...")
     
-    while page <= max_pages:
+    while True:
         payload = {"pageNum": page, "pageSize": page_size}
         
         try:
@@ -57,6 +57,11 @@ def get_flagos_models() -> List[Dict]:
             
             models = data.get("data", {}).get("data", [])
             total_models = data.get("data", {}).get("total", 0)
+            
+            # Calculate total pages on first successful request
+            if max_pages is None:
+                max_pages = (total_models + page_size - 1) // page_size
+                print(f"    Total models: {total_models}, total pages: {max_pages}")
             
             if not models:
                 print("    No more models found")
@@ -78,6 +83,11 @@ def get_flagos_models() -> List[Dict]:
                 break
                 
             page += 1
+            
+            # Stop if we've fetched all pages
+            if max_pages is not None and page > max_pages:
+                print(f"    Reached last page ({max_pages})")
+                break
             
         except requests.exceptions.Timeout:
             print(f"    Timeout on page {page}")
@@ -214,7 +224,7 @@ def main():
     # Configuration - adjust according to your directory structure
     script_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.join(script_dir, '../..')
-    output_filename = os.path.join(repo_root, "docs/flagrelease_en/modle_list/model-list-aihuanxin.md")
+    output_filename = os.path.join(repo_root, "docs/flagrelease_en/model_list/model-list-aihuanxin.md")
     
     # Ensure output directory exists
     output_dir = os.path.dirname(output_filename)
