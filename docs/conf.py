@@ -123,6 +123,13 @@ multiproject_projects = {
             "html_title": "FlagTree Documentation",
         },
     },
+    "flagscale_en": {
+        "use_config_file": False,
+        "config": {
+            "project": "FlagScale Documentation",
+            "html_title": "FlagScale Documentation",
+        },
+    },
     "flagrelease_en": {
         "use_config_file": False,
         "config": {
@@ -205,6 +212,13 @@ multiproject_projects = {
         "config": {
             "project": "FlagTree 文档中心",
             "html_title": "FlagTree 文档中心",
+        },
+    },
+    "flagscale_zh": {
+        "use_config_file": False,
+        "config": {
+            "project": "FlagScale 文档中心",
+            "html_title": "FlagScale 文档中心",
         },
     },
     "flagrelease_zh": {

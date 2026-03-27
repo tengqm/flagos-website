@@ -231,6 +231,30 @@ body {
   }
 }
 
+/* ========== Section layout ========== */
+.flagos-section {
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--flagos-text);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--flagos-blue);
+  display: inline-block;
+}
+
+/* When grid is inside a section, remove its own max-width/padding
+   since the section wrapper already handles it */
+.flagos-section .flagos-grid {
+  max-width: none;
+  padding: 0;
+}
+
 /* Override Sphinx theme styles */
 .sd-card {
   border: none !important;
