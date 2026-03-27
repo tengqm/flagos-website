@@ -8,4 +8,5 @@ This section includes the hardware-adapted models released through FlagRelease.
 model-list-aihuanxin.md
 model-list-huggingface.md
 model-list-modelscope.md
+model-list-cloud.md
 ```

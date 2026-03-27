@@ -168,8 +168,8 @@ multiproject_projects = {
     "verl_fl_en": {
         "use_config_file": False,
         "config": {
-            "project": "Verl-FL Documentation",
-            "html_title": "Verl-FL Documentation",
+            "project": "verl-FL Documentation",
+            "html_title": "verl-FL Documentation",
         },
     },
     "flagos_robo_en": {
@@ -259,8 +259,8 @@ multiproject_projects = {
     "verl_fl_zh": {
         "use_config_file": False,
         "config": {
-            "project": "Verl-FL 文档中心",
-            "html_title": "Verl-FL 文档中心", 
+            "project": "verl-FL 文档中心",
+            "html_title": "verl-FL 文档中心", 
         },
     },
     "flagos_robo_zh": {
