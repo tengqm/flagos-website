@@ -17,3 +17,5 @@ FlagTree includes the following main features:
   - TLE-Raw:
     - Design philosophy: Native transmission, ultimate control.
     - Core concept: Break the abstract boundaries of DSL and support inline native code from vendors. It enables the direct generation of target instructions through the vendor's private compilation pipeline, bypassing the intermediate conversion overhead of general-purpose compilers and granting expert-level users absolute control over instruction scheduling, register allocation, and underlying synchronization primitives.
+- **FLIR**:
+  FlagTree Linalg Intermediate Representation, which is a multi-backend unified intermediate layer that serves as the central hub for lowering TTIR Ext Triton extension intermediate representations (for example, Hints, Ops, and TLE) to hardware-specific dialect.

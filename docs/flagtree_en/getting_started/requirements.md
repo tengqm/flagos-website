@@ -71,5 +71,6 @@ Each backend is based on different versions of Triton, and therefore resides in 
   
 ## Features on different branches
 
-- Hints are available on specific branches. For more information, see [Use Hints](/user_guide/use-hints.md).
-- TLE-Lite, TLE-Struct, and TLE-Raw are available on trition_3.5.x. for GPU vendors and Huawei Ascend.
+- Hints are available on specific branches and backends. For more information, see [Use Hints](/user_guide/use-hints.md). 
+- TLE-Lite, TLE-Struct, and TLE-Raw are available on trition_3.6.x. for GPU vendors and Huawei Ascend, NVIDIA, Tsingmicro and Moore Threads (to be confirmed).
+- FLIR are available on triton_v3.2.x and triton_v3.3.x branches for AIPU, Huawei Ascend, and Tsingmicro.
