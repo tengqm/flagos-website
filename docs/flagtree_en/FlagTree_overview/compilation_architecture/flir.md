@@ -2,7 +2,7 @@
 
 ## Overview
 
-FLIR (FlagTree Linalg Intermediate Representation) is a multi-backend unified intermediate layer that serves as the central hub for lowering Triton extensions intermediate representations (for example, Hints, Ops, and TLE) to hardware-specific dialects. When you use Hints and TLE features, FLIR feature is automatically used without any user intervention.
+FLIR is a multi-backend unified intermediate layer that serves as the central hub for lowering Triton extensions intermediate representations (for example, Hints, Ops, and TLE) to hardware-specific dialects. When you use Hints and TLE features, FLIR feature is automatically used without any user intervention.
 
 ## Position in the compilation pipeline
 
