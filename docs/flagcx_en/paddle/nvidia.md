@@ -41,7 +41,7 @@ python -c "import paddle;paddle.utils.run_check()"
 
 ## Train model using paddle + FlagCX
 
-We now support training GPT3 on XPU environment using Paddle + FlagCX. Please refer to the following steps to get started.
+We now support training GPT3 on NVIDIA GPU environment using Paddle + FlagCX. Please refer to the following steps to get started.
 
 1. clone PaddleNLP
 
@@ -72,7 +72,7 @@ We now support training GPT3 on XPU environment using Paddle + FlagCX. Please re
     please refer to the following script for training GPT3
 
     ```bash
-    # this is the script for training gpt3 on XPU machines using flagcx as communication backend
+    # this is the script for training gpt3 on NVIDIA GPU machines using flagcx as communication backend
     # define root path
     export root_path=/workspace
     export PYTHONPATH=$root_path/PaddleNLP:$PYTHONPATH
@@ -82,7 +82,6 @@ We now support training GPT3 on XPU environment using Paddle + FlagCX. Please re
     export GLOG_v=0
     export FLAGCX_DEBUG=INFO
     export FLAGCX_DEBUG_SUBSYS=INIT
-    export XPU_FORCE_SHARED_DEVICE_CONTEXT=1
 
     current_date=$(date +"%m%d")
     task_name="gpt13b_dynamic_hand_nosp_ly4_debug_$current_date"

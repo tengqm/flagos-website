@@ -1,39 +1,43 @@
-# Build Guide
+# Build and Installation
 
-1. Clone the repository:
+## Obtain Source Code
 
-   ```shell
-   git clone https://github.com/FlagOpen/FlagCX.git
-   ```
+```shell
+git clone https://github.com/flagos-ai/FlagCX.git
+cd FlagCX
+git submodule update --init --recursive
+```
 
-1. Initialize third-party dependencies:
+## Installation
 
-   ```shell
-   git submodule update --init --recursive
-   ```
+**Option A — Pythonic Installation (pip install):**
 
-1. Build the library with different flags targeting to different platforms:
+```shell
+pip install . -v --no-build-isolation
+```
 
-   ```shell
-   cd FlagCX
-   make [backend]
-   ```
+**Option B — C++ library (make):**
 
-   where `backend` is used to enable different platforms. The valid options are
-   one of:
+```shell
+make <backend>=1 -j$(nproc)
+```
+where `<backend>` is one of:
+- `USE_NVIDIA`: NVIDIA GPU support
+- `USE_ILUVATAR_COREX`: Iluvatar Corex support
+- `USE_CAMBRICON`: Cambricon support
+- `USE_METAX`: MetaX support
+- `USE_MUSA`: Moore Threads support
+- `USE_KUNLUNXIN`: Kunlunxin support
+- `USE_DU`: Hygon support
+- `USE_ASCEND`: Huawei Ascend support
+- `USE_AMD`: AMD support
+- `USE_TSM`: TsingMicro support
+- `USE_ENFLAME`: Enflame support
+- `USE_GLOO`: GLOO support
+- `USE_MPI`: MPI support
 
-   - `USE_NVIDIA=1`: Enable the NVIDIA support;
-   - `USE_ILUVATAR_COREX=1`: Enable the Iluvatar Corex support;
-   - `USE_CAMBRICON=1`: Enable the support to Cambricon chips;
-   - `USE_GLOO=1`: Enable the support to GLOO host-side CCL;
-   - `USE_MPI=1`: Enable the support to MPI library;
-   - `USE_METAX=1`: Enable the support to MetaX chips;
-   - `USE_MUSA=1`: Enable the support to Moore Threads chips;
-   - `USE_KUNLUNXIN=1`: Enable the support to KLX chips;
-   - `USE_DU=1`, `USE_ASCEND=1`: Enable support to Huawei Ascend hardware;
-   - `USE_AMD=1`: Enable support to AMD hardware.
+Note that Option A also supports `<backend>=1`, allowing users to explicitly specify the backend. Otherwise, it will be selected automatically.
 
-   The default installation path is set to `build/`, you can manually set `BUILDDIR` environment variable to customize the build path.
-   You may also specify `DEVICE_HOME` and/or `CCL_HOME` to indicate the installation paths of the device runtime and installation path
-   of the communication libraries respectively.
-
+The default installation path is set to `build/`, you can manually set `BUILDDIR` environment variable to customize the build path.
+You may also specify `DEVICE_HOME` and/or `CCL_HOME` to indicate the installation paths of the device runtime and installation path
+of the communication libraries respectively.
