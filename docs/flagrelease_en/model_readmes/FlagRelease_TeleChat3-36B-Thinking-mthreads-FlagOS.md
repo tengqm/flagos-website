@@ -5,6 +5,8 @@ base_model:
 
 # Model Introduction
 
+**Contributed by [TeleAI](https://github.com/Tele-AI) — adapted and optimized for FlagOS by the TeleAI team.**
+
 TeleChat3-36B-Thinking-mthreads-FlagOS is optimized by TeleAI based on the TeleChat3-36B-Thinking base model, deeply adapted to the full-stack software environment of FlagOS and the Moore mthreads multi-threaded inference framework, focusing on high-performance large language models with chain-of-thought reasoning capabilities.
 
 Leveraging the FlagScale distributed training/inference framework, FlagGems general operator library, FlagCX communication acceleration library, and the Moore mthreads multi-threaded engine, it enhances core capabilities such as complex problem decomposition, multi-step logical reasoning, and precise analysis. It achieves high-throughput, low-latency, stable and reliable concurrent inference services, and can be directly containerized and deployed for business implementation in the FlagOS environment with mthreads. It is suitable for various question-answering, reasoning, and decision-making scenarios that require in-depth thinking and high-concurrency calls.
