@@ -15,6 +15,7 @@
 | ERNIE-4.5-300B-A47B-PT-FlagOS | <https://huggingface.co/FlagRelease/ERNIE-4.5-300B-A47B-PT-FlagOS> |
 | GLM-4.5-FlagOS | <https://huggingface.co/FlagRelease/GLM-4.5-FlagOS> |
 | GLM-5-ascend-FlagOS | <https://huggingface.co/FlagRelease/GLM-5-ascend-FlagOS> |
+| GLM-5-FP8-FlagOS | <https://huggingface.co/FlagRelease/GLM-5-FP8-FlagOS> |
 | gpt-oss-120b-FlagOS | <https://huggingface.co/FlagRelease/gpt-oss-120b-FlagOS> |
 | grok-2-FlagOS | <https://huggingface.co/FlagRelease/grok-2-FlagOS> |
 | Hunyuan-A13B-Instruct-FlagOS | <https://huggingface.co/FlagRelease/Hunyuan-A13B-Instruct-FlagOS> |
